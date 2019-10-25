@@ -1319,7 +1319,7 @@ build_and_test() {
     cabal-v2)
       run_verbose_errexit $CABALCMD v2-build $GHCJS_FLAG $CABAL_BUILD_OPTIONS $CABAL_BUILD_TARGETS
       echo
-      test -n "$DISABLE_DOCS" || run_verbose_errexit $CABALCMD v2-haddock $GHCJS_FLAG $CABAL_BUILD_OPTIONS $CABAL_BUILD_TARGETS
+      test -n "$DISABLE_DOCS" || run_verbose_errexit $CABALCMD v2-haddock $GHCJS_FLAG $HADDOCK_BUILD_OPTIONS $CABAL_BUILD_TARGETS
       if test -z "$DISABLE_TEST"
       then
         local version
@@ -1404,6 +1404,7 @@ build_hlint() {
   show_step "Running hlint commands..."
   run_verbose_errexit "$HLINT_COMMANDS"
 }
+
 
 # We run it only after a stack or cabal build so we are sure that stack or
 # cabal are already installed.
